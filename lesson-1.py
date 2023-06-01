@@ -6,15 +6,12 @@
 st = 'as 23 fdfdg544' введена строка
 2,3,5,4,4        #вивело в консолі.
 """
-st = 'as 23 fdfdg544'
+st = 'as 23 fdfdg544f'
+res = []
 for i in st:
-    if st.endswith(i):
-        print(i)
-        break
-    elif i.isnumeric():
-        print(i, end=',')
-    else:
-        continue
+    if i.isnumeric():
+        res.append(i)
+print(','.join(res))
 
 #################################################################################
 """
@@ -25,15 +22,11 @@ for i in st:
   23, 544, 34              #вивело в консолі
   """
 st1 = 'as 23 fdfdg544 34a'
+res1 = []
 for i in st1:
-    if i.isnumeric():
-        print(i, end='')
-        continue
-    elif i.isalpha() or ' ':
-        continue
-    else:
-        print(end=(','))
-print()
+    if i.isnumeric() or i==' ':
+        res1.append(i)
+print(','.join(''.join(res1).split()))
 #################################################################################
 
 # list comprehension
