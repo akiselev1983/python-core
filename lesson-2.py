@@ -7,14 +7,16 @@ def notebook():
     todo_list = []
     def inner(todo):
         todo_list.append(todo)
+        get_all()
         return todo_list
+    def get_all():
+        return print(todo_list)
     return inner
 
 
 todo_list = notebook()
-print(todo_list('hi'))
-print(todo_list('hello'))
-print(todo_list('world'))
+todo_list('hi')
+todo_list('hello')
 
 """
 2) протипізувати перше завдання
@@ -23,7 +25,10 @@ def notebook():
     todo_list = []
     def inner(todo:str)->list:
         todo_list.append(todo)
+        get_all()
         return todo_list
+    def get_all():
+        return print(todo_list)
     return inner
 
 """
