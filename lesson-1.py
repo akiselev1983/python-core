@@ -21,7 +21,7 @@ print(','.join(res))
   st = 'as 23 fdfdg544 34' #введена строка
   23, 544, 34              #вивело в консолі
   """
-st1 = 'as 23 fdfdg544 34a'
+st1 = 'as 23 fdf33dg544 34a'
 res1 = []
 for i in st1:
     if i.isnumeric() or i==' ':
