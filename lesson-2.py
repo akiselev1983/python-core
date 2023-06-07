@@ -5,31 +5,35 @@
 """
 def notebook():
     todo_list = []
-    def inner(todo):
+    def add_todo(todo):
+        nonlocal todo_list
         todo_list.append(todo)
-        get_all()
-        return todo_list
     def get_all():
-        return print(todo_list)
-    return inner
+        nonlocal todo_list
+        return todo_list.copy()
+    return add_todo, get_all
 
 
-todo_list = notebook()
-todo_list('hi')
-todo_list('hello')
+add, all_todo = notebook()
+add('hi')
+add('hello')
+add('world')
+print(all_todo())
 
 """
 2) протипізувати перше завдання
 """
 def notebook():
-    todo_list = []
-    def inner(todo:str)->list:
+    todo_list:list[str] = []
+    def add_todo(todo:str)->None:
+        nonlocal todo_list
         todo_list.append(todo)
-        get_all()
-        return todo_list
-    def get_all():
-        return print(todo_list)
-    return inner
+    def get_all()->list[str]:
+        nonlocal todo_list
+        return todo_list.copy()
+    return add_todo, get_all
+
+
 
 """
 3) створити функцію котра буде повертати сумму розрядів числа у вигляді строки (також використовуемо типізацію)
@@ -40,7 +44,7 @@ expanded_form(12) # return '10 + 2'
 expanded_form(42) # return '40 + 2'
 expanded_form(70304) # return '70000 + 300 + 4'
 """
-def expanded_form(n:str):
+def expanded_form(n:int):
     sum=[]
     j = len(str(n))
     for i in str(n):
@@ -51,6 +55,22 @@ def expanded_form(n:str):
 
 expanded_form(70304)
 
+"""
+def expanded_form(n:int)->str:
+    st = str(num)
+    length = len(st)-1
+    sum=[]
+    for i, ch in enumerate(st):
+        if ch != '0':
+            sum.append(ch+'0'*(length-1))
+    return '+'.join(sum)
+ИЛИ
+def expanded_form(n:int)->str:
+    st = str(num)
+    length = len(st)-1
+    return '+'.join(ch+'0'*(length-1) for i, ch in enumerate(st) if ch != '0')
+
+"""
 
 
 """
